@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import InputSongeun from "./Input";
+import styles2 from "./HookForm.module.scss";
 
 type FormValues = {
   email: string;
@@ -54,10 +55,13 @@ export default function HookFormSongeun() {
   return (
     <form onSubmit={handleSubmit(handleValidSubmit)}>
       <InputSongeun
+        inputClassName={styles2.abc}
         label={"송은인풋"}
         hasLabel={true}
         type="password"
         id="songeun"
+        errors={errors}
+        register={register("email")}
       />
     </form>
   );

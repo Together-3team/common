@@ -4,6 +4,11 @@ import { useState } from "react";
 import styles from "./Input.module.scss";
 import eyeOnImg from "./svgs/eye-on.svg";
 import eyeOffImg from "./svgs/eye-off.svg";
+import {
+  FieldErrors,
+  FieldValues,
+  UseFormRegisterReturn,
+} from "react-hook-form";
 
 type IconType = {
   src: string;
@@ -21,6 +26,8 @@ type InputSongeun = {
   hasLabel: boolean;
   required?: boolean;
   icon?: IconType;
+  register?: UseFormRegisterReturn;
+  errors?: FieldErrors<FieldValues>;
 };
 
 export default function InputSongeun({
@@ -32,6 +39,9 @@ export default function InputSongeun({
   hasLabel = true,
   required = false,
   icon,
+  register,
+  errors,
+  ...rest
 }: InputSongeun) {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -61,6 +71,8 @@ export default function InputSongeun({
           type={type === "password" && isVisible ? "text" : type}
           className={styles.input}
           id={id}
+          {...register}
+          {...rest}
         />
         {type === "password" && (
           <button
@@ -77,6 +89,11 @@ export default function InputSongeun({
           </button>
         )}
       </div>
+      {errors && register && errors[register.name]?.message && (
+        <p className={styles.errorMessage}>
+          {errors[register.name]?.message?.toString()}
+        </p>
+      )}
     </>
   );
 }

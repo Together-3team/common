@@ -1,3 +1,55 @@
+.label {
+  color: #333236;
+  font-size: 1.25rem;
+  font-weight: 500;
+
+  &.hiddenLabel {
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+  }
+
+  & .required {
+    color: #5534da;
+  }
+}
+
+.inputContainer {
+  display: flex;
+  width: 400px;
+  border: 1px solid #d9d9d9;
+  padding: 0 1rem;
+  &:focus-within {
+    border-color: #5534da;
+  }
+}
+
 .input {
-  padding: 0.5rem 3em 0.5rem 3rem;
+  flex-grow: 1;
+  border: none;
+  &::placeholder {
+    color: #9fa6b2;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.visibleToggler {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+
+.errorMessage {
+  color: #d6173a;
+  font-size: 1rem;
+  margin: 4px 0;
 }
