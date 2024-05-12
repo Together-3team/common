@@ -8,6 +8,7 @@ const InputJiwon: React.FC<InputFieldProps> = ({
   placeholder,
   value,
   onChange,
+  error,
 }) => {
   return (
     <div>
@@ -20,6 +21,7 @@ const InputJiwon: React.FC<InputFieldProps> = ({
         value={value}
         onChange={onChange}
       />
+      {error && <p style={{ color: "red" }}>{error}</p>}
     </div>
   );
 };
