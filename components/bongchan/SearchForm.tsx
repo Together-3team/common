@@ -26,7 +26,11 @@ export default function SearchFormBongchan() {
             height={24}
             onClick={handleSubmit}
           />
-          <InputBongchan.Field type="text" ref={searchInputRef} />
+          <InputBongchan.Field
+            type="text"
+            placeholder="검색어를 입력해 주세요."
+            ref={searchInputRef}
+          />
         </InputBongchan.Box>
       </InputBongchan>
       <button type="submit">제출</button>
