@@ -1,7 +1,11 @@
 import Image from 'next/image';
 import { FormEvent, useRef } from 'react';
+import classNames from 'classnames/bind';
 
+import styles from './Form.module.scss';
 import InputBongchan from './Input';
+
+const cx = classNames.bind(styles);
 
 export default function SearchFormBongchan() {
   const searchInputRef = useRef<HTMLInputElement>(null);
@@ -12,7 +16,7 @@ export default function SearchFormBongchan() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={cx('form')} onSubmit={handleSubmit}>
       <InputBongchan>
         <InputBongchan.Box>
           <Image
