@@ -7,6 +7,7 @@ interface InputLabelBongchanProps
   extends LabelHTMLAttributes<HTMLLabelElement> {
   children: ReactNode;
   className?: string;
+  hide?: boolean;
 }
 
 const cx = classNames.bind(styles);
@@ -14,10 +15,11 @@ const cx = classNames.bind(styles);
 export default function InputLabelBongchan({
   children,
   className,
+  hide,
   ...rest
 }: InputLabelBongchanProps) {
   return (
-    <label className={cx('label', className)} {...rest}>
+    <label className={cx('label', { hide }, className)} {...rest}>
       {children}
     </label>
   );
