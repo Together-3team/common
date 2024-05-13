@@ -8,7 +8,7 @@ interface InputProps {
   style?: string;
   isError: boolean;
   errorText?: string;
-  labelStyle: string;
+  labelStyle?: string;
   placeholder: string;
 }
 
@@ -35,6 +35,7 @@ export default function InputSeoin({
         className={`${style} ${isError && styles["Error"]}`}
         placeholder={placeholder}
       />
+      {isError && <p className={styles.ErrorText}>{errorText}</p>}
     </div>
   );
 }

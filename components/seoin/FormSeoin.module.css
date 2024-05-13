@@ -13,3 +13,7 @@
 .Error {
   border: 1px red solid;
 }
+
+.ErrorText {
+  color: red;
+}
